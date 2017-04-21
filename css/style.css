@@ -1,0 +1,11 @@
+.listcontainer {
+	max-width: 20%;
+}
+
+#thelist li {
+	background-color: rgba(0,0,0,0.2);
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	width: 20%;
+	max-width: 20%;
+}
