@@ -3,6 +3,10 @@
 	border: 1px solid;
 }
 
+#insertList {
+	padding-left: 1.5em;
+}
+
 #thelist {
 	padding-left: 1.2em;
 	margin-right: 1.2em;

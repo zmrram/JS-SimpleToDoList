@@ -12,14 +12,16 @@ function insertItem(value) {
 	list.innerHTML =  value ;
 	thelist.appendChild(list);
 	list.appendChild(check);
-	console.log(todoList.length);
+	var s = todoList.join();
+	console.log(s);
 }
 
 function deleteCheckedItem(){
 	var listArr = document.getElementById('thelist').children;
-	for (var i = 0; i < listArr.length; i++){
+	for (var i = listArr.length - 1; i >= 0; i--){
 		if (listArr[i].children[0].checked){
 			listArr[i].remove();
+			todoList.splice(i, 1);
 		}
 	}
 }
