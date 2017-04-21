@@ -3,7 +3,6 @@
 var todoList = [];
 
 function insertItem(value) {
-	todoList.push(value);
 	var theList = document.getElementById('thelist');
 	var list = document.createElement("li");
 	var check = document.createElement("INPUT");
@@ -12,8 +11,26 @@ function insertItem(value) {
 	list.innerHTML =  value ;
 	thelist.appendChild(list);
 	list.appendChild(check);
-	var s = todoList.join();
-	console.log(s);
+}
+
+function saveList(){
+	if (typeof(Storage) !== "undefined") {
+   		localStorage.todo_list = todoList;
+	} else {
+    	console.log("Browser doesn't support Web Storage")
+	}
+}
+
+function loadList(){
+	if(localStorage.todo_list){
+		todoList = localStorage.todo_list.split(",");
+		for (var i = 0; i < todoList.length; i++){
+			insertItem(todoList[i]);
+		}
+	}
+	else{
+		localStorage.todo_list = todoList;
+	}
 }
 
 function deleteCheckedItem(){
@@ -33,6 +50,7 @@ function listener() {
 		e.preventDefault();
 		var todo_item = document.getElementById('insertList').elements['userInput'].value;
 		if (todo_item != null){
+			todoList.push(todo_item);
 			insertItem(todo_item);
 		}
 	};
@@ -42,4 +60,12 @@ function listener() {
 	};
 }
 
-listener();
+function init(){
+	loadList();
+	listener();
+}
+
+window.onbeforeunload = function(){
+	saveList();
+};
+init();
