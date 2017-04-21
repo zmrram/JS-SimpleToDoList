@@ -5,15 +5,17 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<div class = 'list-container'>
-	<ol id = 'thelist'>
-	</ol>
+<div class = container>
+	<div class = 'list-container'>
+		<ol id = 'thelist'>
+		</ol>
+	</div>
+	<form id = 'insertList'>
+		<label>Add to list: </label><input type="text" name="userInput" placeholder="What to do next...">
+		<input type="submit" value="Add" name="addButton">
+		<button id = 'deleteButton'>Done</button>
+	</form>
 </div>
-<form id = 'insertList'>
-	<label>Add to list: </label><input type="text" name="userInput" placeholder="What to do next...">
-	<input type="submit" value="Add" name="addButton">
-	<button id = 'deleteButton'>Done</button>
-</form>
 <script src = "js/todo.js" type="text/javascript"></script>
 </body>
 </html>

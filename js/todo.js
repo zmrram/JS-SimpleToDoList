@@ -49,7 +49,7 @@ function listener() {
 	insert.onclick = function (e){
 		e.preventDefault();
 		var todo_item = document.getElementById('insertList').elements['userInput'].value;
-		if (todo_item != null){
+		if (todo_item != ""){
 			todoList.push(todo_item);
 			insertItem(todo_item);
 		}
